@@ -14,7 +14,7 @@ let viewerIndex = 0;
 const options = {
   lat: 0,
   lng: 0,
-  zoom: 1,
+  zoom: 1.5,
   style: "https://{s}.tile.osm.org/{z}/{x}/{y}.png",
 };
 
@@ -64,6 +64,7 @@ function draw() {
   if (frameCount % 10 === 0) {
     viewerIndex = (viewerIndex + 1) % viewers.length;
   }
+  trainMap.map.flyTo([viewer.lat, viewer.lng],4)
 
   clear();
   // randomSeed(5);
