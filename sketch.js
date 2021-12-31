@@ -12,9 +12,9 @@ let fireworks = [];
 let viewerIndex = 0;
 
 const options = {
-  lat: -90,
+  lat: 0,
   lng: 0,
-  zoom: 1.5,
+  zoom: 1,
   style: "https://{s}.tile.osm.org/{z}/{x}/{y}.png",
 };
 
