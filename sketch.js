@@ -18,6 +18,14 @@ const options = {
   style: "https://{s}.tile.osm.org/{z}/{x}/{y}.png",
 };
 
+function normalizeName(name) {
+  return name
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .trim();
+}
+
 function preload() {
   // youtubeData = loadTable("subscribers_geo.csv", "header");
   // youtubeData = loadTable('watch_time_geo.csv', 'header');
@@ -32,15 +40,15 @@ function setup() {
 
   //console.log(cities);
   for (let city of cities.cities) {
-    let name = city.name.toLowerCase();
+    let name = normalizeName(city.name);
     cityLookup[name] = city;
   }
 
   for (let row of viewerData.rows) {
-    let city = row.get("City").toLowerCase();
-    let data = cityLookup[city];
+    let cityName = normalizeName(row.get("City"));
+    let data = cityLookup[cityName];
     if (!data) {
-      console.log(city);
+      console.log(cityName);
     } else {
       viewers.push(data);
     }
