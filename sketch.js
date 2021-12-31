@@ -14,8 +14,8 @@ let viewerIndex = 0;
 const options = {
   lat: -90,
   lng: 0,
-  zoom: 5,
-  style: "http://{s}.tile.osm.org/{z}/{x}/{y}.png",
+  zoom: 1,
+  style: "https://{s}.tile.osm.org/{z}/{x}/{y}.png",
 };
 
 function preload() {
