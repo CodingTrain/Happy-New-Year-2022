@@ -14,7 +14,7 @@ let viewerIndex = 0;
 const options = {
   lat: -90,
   lng: 0,
-  zoom: 1,
+  zoom: 1.5,
   style: "https://{s}.tile.osm.org/{z}/{x}/{y}.png",
 };
 
@@ -26,7 +26,7 @@ function preload() {
 }
 
 function setup() {
-  canvas = createCanvas(800, 600);
+  canvas = createCanvas(windowWidth, windowHeight);
   trainMap = mappa.tileMap(options);
   trainMap.overlay(canvas);
 
